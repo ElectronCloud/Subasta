@@ -8,10 +8,12 @@ import data.*;
 import java.util.ArrayList;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 
 /**
  *
- * @author Gloria
+ * @author Juan
  */
 public class ControladorVentana {
     private Ventana ventana;
@@ -21,7 +23,8 @@ public class ControladorVentana {
     public ControladorVentana(Modelo modelo) {
         this.ventana = new Ventana();
         this.proyectos = modelo.getGestor().getProyectos();
-        ObservableList<Proyecto> oProyecto = FXCollections.observableArrayList(proyectos);
+        
+        ObservableList<Proyecto> oProyecto = FXCollections.observableArrayList(modelo.getGestor().getProyectos());
         
         this.ventana.getTabla().setItems(oProyecto);
     }
@@ -37,3 +40,4 @@ public class ControladorVentana {
     
     
 }
+    

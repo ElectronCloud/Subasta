@@ -6,6 +6,7 @@
 package gui;
 
 import data.*;
+import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleStringProperty;
 
 /**
@@ -16,16 +17,20 @@ public class Modelo {
     private Gestor gestor;
     private SimpleStringProperty nombreProyecto;
     private SimpleStringProperty duennoProyecto;
-    private SimpleStringProperty precioInicial;
-    private SimpleStringProperty precioReserva;
+    private SimpleDoubleProperty precioInicial;
     private SimpleStringProperty aportanteFinal;
-    private SimpleStringProperty tasaInteresAportanteFinal;
+    private SimpleDoubleProperty tasaInteresAportanteFinal;
 
     public Modelo(Gestor gestor) {
         this.gestor = gestor;
-        this.nombreProyecto = new SimpleStringProperty(gestor.getProyectos().get(0).getNombre());
-        this.duennoProyecto = new SimpleStringProperty(gestor.getProyectos().get(0).getPromotor().getID());
-    }
+        for(int i=0; i<gestor.getProyectos().size(); i++){
+        this.nombreProyecto = new SimpleStringProperty(gestor.getProyectos().get(i).getNombre());
+        this.duennoProyecto = new SimpleStringProperty(gestor.getProyectos().get(i).getPromotor().getID());
+        this.aportanteFinal = new SimpleStringProperty(gestor.getProyectos().get(i).getAportanteFinal().getID());
+        this.precioInicial = new SimpleDoubleProperty(gestor.getProyectos().get(i).getPrecioInicial());
+        this.tasaInteresAportanteFinal = new SimpleDoubleProperty(gestor.getProyectos().get(i).getAportanteFinal().getTasaInteres());
+        }
+        }
 
     public Gestor getGestor() {
         return gestor;

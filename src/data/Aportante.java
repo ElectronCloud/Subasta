@@ -21,6 +21,10 @@ public class Aportante {
         this.plazo = plazo;
         this.precioAceptable = precioAceptable;
     }
+    
+    public Aportante(String ID) {
+        this.ID = ID;
+    }
 
     public String getID() {
         return ID;
@@ -50,7 +54,7 @@ public class Aportante {
         return precioAceptable;
     }
 
-    public void setPrecioAceptable(int precioAceptable) {
+    public void setPrecioAceptable(double precioAceptable) {
         this.precioAceptable = precioAceptable;
     }
     
